@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Pengaturan</title>
+    <style>
+        /* CSS Anda dapat ditempatkan di sini */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="file"] {
+            display: none;
+        }
+
+        label {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #file-label {
+            cursor: pointer;
+        }
+
+        #file-name {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        #submit-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Panel Pengaturan</h1>
+        <label for="file" id="file-label">Pilih File</label>
+        <input type="file" id="file" accept=".html, .css, .js">
+        <p id="file-name">Tidak ada file yang dipilih.</p>
+        <button id="submit-button">Kirim Perubahan</button>
+    </div>
+
+    <script>
+        // JavaScript Anda dapat ditempatkan di sini
+        const fileInput = document.getElementById("file");
+        const fileNameDisplay = document.getElementById("file-name");
+
+        fileInput.addEventListener("change", function () {
+            const fileName = fileInput.files[0].name;
+            fileNameDisplay.textContent = `File yang dipilih: ${fileName}`;
+        });
+
+        document.getElementById("file-label").addEventListener("click", function () {
+            fileInput.click();
+        });
+
+        document.getElementById("submit-button").addEventListener("click", function () {
+            // Implementasikan logika untuk mengirim perubahan ke Website Kedua (GitHub).
+            // Anda akan perlu menggunakan API GitHub atau mekanisme penyimpanan yang sesuai di sini.
+            alert("Perubahan berhasil dikirim!");
+        });
+    </script>
+</body>
+</html>
